@@ -21,12 +21,12 @@ def index_page():
 
 @app.route('/login')
 def login_page():
-    # Renderiza a página de login
+    
     return render_template('login.html')
 
 
 def aprof_page():
-    # Renderiza a página de aprofundamento (explicação do projeto)
+   
     return render_template('aprof.html')
 
 
@@ -37,7 +37,7 @@ def quest1()
 
 @app.route('/quest2')
 def quest2():
-    # Renderiza a segunda parte do questionário
+   
     return render_template('quest2.html')
 
 
@@ -95,7 +95,7 @@ def fim_page(): # Mudei o nome da função para 'fim_page' para evitar conflito 
     user_id = request.args.get('user_id')
     
     if not user_id:
-        # Se for acessado diretamente sem user_id, volta para o início
+       
         return redirect(url_for('index_page')) 
 
     try:
@@ -124,4 +124,5 @@ def fim_page(): # Mudei o nome da função para 'fim_page' para evitar conflito 
 if __name__ == '__main__':
 
     app.run(debug=True)
+
 
