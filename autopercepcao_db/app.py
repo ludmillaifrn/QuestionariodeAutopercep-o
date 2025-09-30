@@ -1,9 +1,9 @@
 from flask import Flask, render_template, request, redirect, url_for
-from flask_mysqldb import MySQL # Extensão para conectar ao MySQL
+from flask_mysqldb import MySQL
 
 app = Flask(__name__)
 
-# --- CONFIGURAÇÃO DO BANCO DE DADOS (USANDO SUA SENHA 'labinfo') ---
+
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = 'labinfo' # Sua senha atual
@@ -12,48 +12,42 @@ app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 
 mysql = MySQL(app)
 
-# -------------------------------------------------------------------
 
-# 1. ROTA PRINCIPAL: /
 @app.route('/')
 def index_page():
     # Renderiza a página principal (index.html), que linka para o login
     return render_template('index.html')
 
-# 2. ROTA DE LOGIN: /login
+
 @app.route('/login')
 def login_page():
     # Renderiza a página de login
     return render_template('login.html')
 
-# 3. ROTA DE APROFUNDAMENTO: /aprof
-@app.route('/aprof')
+
 def aprof_page():
     # Renderiza a página de aprofundamento (explicação do projeto)
     return render_template('aprof.html')
 
-# 4. ROTA QUESTIONÁRIO PARTE 1: /quest1
+
 @app.route('/quest1')
-def quest1():
-    # Renderiza a primeira parte do questionário
+def quest1()
     return render_template('quest1.html')
 
-# 5. ROTA QUESTIONÁRIO PARTE 2: /quest2
+
 @app.route('/quest2')
 def quest2():
     # Renderiza a segunda parte do questionário
     return render_template('quest2.html')
 
 
-# 6. ROTA DE PROCESSAMENTO E SALVAMENTO NO BANCO DE DADOS
-# Esta rota é chamada pelo FORM de quest2.html
+
 @app.route('/enviar_respostas', methods=['POST'])
 def enviar_respostas():
     usuario_id = 'user_teste@email.com'
 
     if request.method == 'POST':
-        # NOTE: O código só salva q1, q2 e q3. 
-        # Assumindo que o formulário final (quest2.html) contém estes campos.
+    
         try:
             # 1. Coletar respostas do formulário
             q1 = int(request.form['resposta_q1'])
@@ -62,10 +56,10 @@ def enviar_respostas():
         except (KeyError, ValueError):
             return "Erro: O formulário final (quest2) precisa enviar os campos 'resposta_q1', 'resposta_q2' e 'resposta_q3'.", 400
 
-        # 2. Calcular pontuações
+       
         pontuacao_total = q1 + q2 + q3
         
-        # 3. Classificar
+        
         if pontuacao_total >= 10:
             nivel_bem_estar = 'Ótimo'
         elif pontuacao_total >= 5:
@@ -73,7 +67,7 @@ def enviar_respostas():
         else:
             nivel_bem_estar = 'Atenção'
 
-        # 4. Salvar no BD
+       
         cur = None
         try:
             cur = mysql.connection.cursor()
@@ -95,7 +89,7 @@ def enviar_respostas():
         return redirect(url_for('fim_page', user_id=usuario_id))
 
 
-# 7. ROTA DE RESULTADOS FINAIS: /fim (usando o template fim.html)
+
 @app.route('/fim') 
 def fim_page(): # Mudei o nome da função para 'fim_page' para evitar conflito com 'resultados'
     user_id = request.args.get('user_id')
@@ -128,4 +122,5 @@ def fim_page(): # Mudei o nome da função para 'fim_page' para evitar conflito 
         return f"Erro ao buscar resultados: {e}", 500
 
 if __name__ == '__main__':
+
     app.run(debug=True)
