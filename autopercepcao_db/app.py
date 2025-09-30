@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'labinfo' # Sua senha atual
+app.config['MYSQL_PASSWORD'] = 'labinfo' 
 app.config['MYSQL_DB'] = 'autopercepcao_db'
 app.config['MYSQL_CURSORCLASS'] = 'DictCursor' 
 
@@ -15,7 +15,7 @@ mysql = MySQL(app)
 
 @app.route('/')
 def index_page():
-    # Renderiza a página principal (index.html), que linka para o login
+   
     return render_template('index.html')
 
 
@@ -85,7 +85,7 @@ def enviar_respostas():
             if cur:
                 cur.close()
 
-        # 5. Redireciona para a tela FINAL ('fim_page')
+       
         return redirect(url_for('fim_page', user_id=usuario_id))
 
 
@@ -113,7 +113,7 @@ def fim_page(): # Mudei o nome da função para 'fim_page' para evitar conflito 
         cur.close()
 
         if resultado:
-            # CORRIGIDO: renderiza 'fim.html'
+           
             return render_template('fim.html', resultado=resultado) 
         else:
             return "Nenhum resultado encontrado para este usuário."
@@ -124,3 +124,4 @@ def fim_page(): # Mudei o nome da função para 'fim_page' para evitar conflito 
 if __name__ == '__main__':
 
     app.run(debug=True)
+
