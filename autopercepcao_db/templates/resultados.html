@@ -65,7 +65,7 @@
 
 </head> <body> <div class="container"> <h1>Relatório de Autopercepção</h1> <p style="color: #6b7280; margin-bottom: 25px;">Obrigado por completar o questionário. Seus resultados mais recentes estão abaixo:</p>
 
-    <!-- Bloco de resultados renderizado pelo Flask/Jinja -->
+  
     {% if resultado %}
         
         <!-- Caixa de Pontuação Total -->
@@ -75,19 +75,19 @@
             <p class="score-total">{{ resultado.pontuacao_total }}</p>
         </div>
 
-        <!-- Caixa de Nível de Bem-Estar -->
+      
         <div class="result-box nivel-bem-estar">
             <p style="font-size: 14px; color: #6b7280; margin: 0;">Nível de Bem-Estar Percebido</p>
             <!-- A variável 'nivel_bem_estar' vem da coluna do seu banco de dados -->
             <p class="score-total">{{ resultado.nivel_bem_estar }}</p>
         </div>
 
-        <!-- Data da Submissão -->
+      
         <div style="font-size: 14px; color: #6b7280; margin-top: 20px; border-top: 1px solid #e0e0e0; padding-top: 15px;">
             <p>Submetido em: {{ resultado.data_submissao }}</p>
         </div>
 
-        <!-- Botão de Ação -->
+        
         <div>
             <a href="{{ url_for('questionario') }}">
                 Responder Novamente
@@ -100,4 +100,5 @@
 </div>
 
 </body> </html>
+
 
