@@ -79,10 +79,10 @@
     background: #f39c12; 
   }
   
-  /* Centralização */
+ 
   .conteudo {
     text-align: center;
-     margin-top: -350px; /* sobe o logo */
+     margin-top: -350px;
   }
   
   .logo {
@@ -98,7 +98,7 @@
    object-fit: cover; 
   }
   
-  /* Círculo da logo */
+  
   .logo-container {
    width: 200px;
    height: 200px;
@@ -117,16 +117,14 @@
    object-fit: contain;
   }
   
-  /* Nome */
-  .nome {
+  
    font-size: 26px;
    font-weight: bold;
    margin: 15px 0;
    color: #111;
   }
   
-  /* Caixa do escore */
-  .score-box {
+ 
   display: inline-flex;
    align-items: center;
    gap: 10px;
@@ -141,11 +139,11 @@
   }
   
   #resultado {
-   color: #0a3d62; /* azul escuro para destaque */
+   color: #0a3d62; 
    font-weight: bold;
   }
   
-  /* Texto descritivo */
+ 
   .descricao p {
    font-size: 18px;
   color: #111;
@@ -153,8 +151,7 @@
    font-weight: bold;
   }
   
-  /* Sobrescrita de .result-box e .score-total - Regras do FIM */
-  /* Estas regras sobrescrevem as regras do resultado seletor for mais específico */
+  
   .result-box {
    border-left: 5px solid #4f46e5;
    background-color: #eeefff;
@@ -170,3 +167,4 @@
    margin-top: 5px;
 
   }
+
