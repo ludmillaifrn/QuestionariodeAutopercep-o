@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Resultado do Questionário</title>
+    <link rel="stylesheet" href="fim.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="topo"></div>
+  
+    <div class="conteudo">
+  
+      <div class="logo">
+        <img src="1000195539 (3).png" alt="Logo do site">
+      </div>
+  
+      <h2 class="nome">Fulano de tal</h2>
+  
+      {% if resultado %}
+        <div class="score-box">
+            <span>O seu escore total deu:</span>
+                        <span id="resultado">{{ resultado.pontuacao_total }}</span> 
+        </div>
+      
+        <div class="descricao">
+            <h2>Feedback de Bem-Estar:</h2>
+            <p>Seu nível de bem-estar percebido é classificado como:</p>
+            
+                        <p style="font-weight: bold; font-size: 1.1em; color: #4CAF50;">
+                {{ resultado.nivel_bem_estar }}
+            </p>
+            
+            <p>Falar é a melhor solução, não guarde tudo para você. <i class="fa-regular fa-heart"></i></p>
+            
+            <small style="display: block; margin-top: 15px; color: #6b7280;">
+                Data da Submissão: {{ resultado.data_submissao }}
+            </small>
+
+                        <a href="{{ url_for('index_page') }}" style="display: block; margin-top: 20px; color: #007bff; text-decoration: none;">
+                <i class="fa-solid fa-sync"></i> Fazer um novo questionário
+            </a>
+        </div>
+
+      {% else %}
+        <p style="color: red; font-weight: bold;">Nenhum resultado encontrado. Por favor, complete o questionário.</p>
+      {% endif %}
+  
+    </div>
+</body>
+</html>

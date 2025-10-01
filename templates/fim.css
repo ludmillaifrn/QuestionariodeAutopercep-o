@@ -1,0 +1,170 @@
+
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+  }
+  
+  body {
+   font-family: Arial, sans-serif;
+   background: #f7f48b; 
+  }
+  
+  
+  .container {
+    background-color: #ffffff;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+ }
+  
+ h1 {
+    color: #4f46e5;
+    font-size: 24px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 10px;
+  }
+  
+   .result-box {
+   border-left: 5px solid #4f46e5;
+   background-color: #eeefff;
+   padding: 15px;
+   border-radius: 8px;
+   margin-bottom: 15px;
+   text-align: left;
+   }
+  
+ .score-total {
+   color: #4f46e5;
+   font-size: 36px;
+   font-weight: bold;
+   margin-top: 5px;
+ }
+  
+  .nivel-bem-estar {
+   border-left-color: #10b981;
+   background-color: #e6fff3;
+   }
+  
+ .nivel-bem-estar .score-total {
+   color: #059669;
+   font-size: 24px;
+   }
+  
+   
+   a {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 10px 20px;
+    background-color: #4f46e5;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+ }
+  
+   a:hover {
+    background-color: #4338ca;
+   }
+      
+  
+  .topo {
+    width: 100%;
+    height: 200px;
+    background: #f39c12; 
+  }
+  
+ 
+  .conteudo {
+    text-align: center;
+     margin-top: -350px;
+  }
+  
+  .logo {
+   width: 700px;
+  height: 700px;
+  margin: 0 auto -200px auto;
+   overflow: hidden; 
+  }
+  
+  .logo img {
+  width: 100%;
+   height: 100%;
+   object-fit: cover; 
+  }
+  
+  
+  .logo-container {
+   width: 200px;
+   height: 200px;
+   background-color: none;
+   border-radius: 50%;
+   margin: 2rem auto;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   overflow: hidden;
+  }
+  
+  .logo-container img {
+  width: 400px;
+   height: 400px;
+   object-fit: contain;
+  }
+  
+  
+   font-size: 26px;
+   font-weight: bold;
+   margin: 15px 0;
+   color: #111;
+  }
+  
+ 
+  display: inline-flex;
+   align-items: center;
+   gap: 10px;
+   background: #fff;
+   border: 2px solid #f39c12;
+   border-radius: 25px;
+   padding: 8px 20px;
+   font-size: 18px;
+   font-weight: bold;
+   color: #111;
+  margin: 20px 0;
+  }
+  
+  #resultado {
+   color: #0a3d62; 
+   font-weight: bold;
+  }
+  
+ 
+  .descricao p {
+   font-size: 18px;
+  color: #111;
+   margin: 8px 0;
+   font-weight: bold;
+  }
+  
+  
+  .result-box {
+   border-left: 5px solid #4f46e5;
+   background-color: #eeefff;
+   padding: 15px;
+   border-radius: 8px;
+   margin-bottom: 15px;
+   text-align: left;
+  }
+  .score-total {
+   color: #4f46e5;
+   font-size: 36px;
+   font-weight: bold;
+   margin-top: 5px;
+
+  }
+
