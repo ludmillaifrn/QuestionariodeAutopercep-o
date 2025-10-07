@@ -50,14 +50,7 @@ body {
     height: 100%;
     object-fit: contain;
 }
-  
-.nome {
-    font-size: 26px;
-    font-weight: bold;
-    margin-left: 1200px;
-    margin-top: -380px;
-    color: #111;
-}
+
 .titulo {
     font-size: 26px;
     font-weight: bold;
@@ -145,4 +138,5 @@ body {
     
 .btn:hover {
     background-color: rgba(236, 171, 15, 1) !important; 
+
 }
