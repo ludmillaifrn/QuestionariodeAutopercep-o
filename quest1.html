@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Questionário - Parte 1</title>
+    <link rel="stylesheet" href="quest1.css">
+</head>
+<body>
+    <div class="topo"></div>
+    <div class="conteudo"></div>
+        
+    <div class="logo-container">
+        <img src="1000195539 (3).png" alt="logo">
+    </div>
+
+    <h2 class="nome">Fulano de tal</h2>
+
+    <form action="{{ url_for('enviar_respostas') }}" method="POST">
+        <div class="titulo">
+            <h1>Questões sobre saúde:</h1>
+        </div>
+
+        <div class="question1">
+            <p>1. Como você está se sentindo hoje?</p><br>
+            <label><input type="radio" name="q1" value="a" required> Muito bem</label><br>
+            <label><input type="radio" name="q1" value="b"> Bem</label><br>
+            <label><input type="radio" name="q1" value="c"> Razoável</label><br>
+            <label><input type="radio" name="q1" value="d"> Mal</label><br>
+        </div>
+
+        <div class="question2">
+            <p>2. Agora sobre o seu sono, quantas horas você tem dormido por noite, nos últimos 5 dias?</p><br>
+            <label><input type="radio" name="q2" value="a" required> De 8 a 10 horas por noite</label><br>
+            <label><input type="radio" name="q2" value="b"> Cerca de 8 horas</label><br>
+            <label><input type="radio" name="q2" value="c"> De 3 a 8 horas por noite</label><br>
+            <label><input type="radio" name="q2" value="d"> Muito pouco</label><br>
+        </div>
+
+        <div class="question3">
+            <p>3. Sobre sua autorregulação, como você lida com suas emoções no dia a dia?</p><br>
+            <label><input type="radio" name="q3" value="a" required> Lido bem com minhas emoções</label><br>
+            <label><input type="radio" name="q3" value="b"> Tenho algumas dificuldades, mas consigo me regular bem</label><br>
+            <label><input type="radio" name="q3" value="c"> Tenho dificuldade para lidar com minhas emoções</label><br>
+            <label><input type="radio" name="q3" value="d"> Não sei lidar bem com as minhas emoções</label>
+        </div>
+        <div class="question4">
+            <p>4. Como você se sente em relação ao vínculo com sua família?</p><br>
+            <label><input type="radio" name="q4" value="a" required> Muito próximo e presente</label><br>
+            <label><input type="radio" name="q4" value="b"> Próximo, mas com algumas dificuldades</label><br>
+            <label><input type="radio" name="q4" value="c"> Distante</label><br>
+            <label><input type="radio" name="q4" value="d"> Muito distante ou inexistente</label><br>
+        </div>
+
+        <div class="question5">
+            <p>5. Você se sente satisfeito(a) com quem é hoje?</p><br>
+            <label><input type="radio" name="q5" value="a" required> Sim, me sinto bem.</label><br>
+            <label><input type="radio" name="q5" value="b"> Razoavelmente satisfeito(a)</label><br>
+            <label><input type="radio" name="q5" value="c"> Pouco satisfeito(a)</label><br>
+            <label><input type="radio" name="q5" value="d"> Nada satisfeito(a)</label><br>
+        </div>
+
+        <div class="question6">
+            <p>6. Como você se sente em relação a si mesmo(a), sua autoconfiança e conquistas?</p><br>
+            <label><input type="radio" name="q6" value="a" required> Confiante e orgulhoso das minhas conquistas.</label><br>
+            <label><input type="radio" name="q6" value="b"> Na maior parte do tempo me sinto confiante.</label><br>
+            <label><input type="radio" name="q6" value="c"> Pouco confiante e com dúvidas.</label><br>
+            <label><input type="radio" name="q6" value="d"> Inseguro e insatisfeito comigo mesmo.</label><br>
+        </div>
+
+        <div class="question7">
+            <p>7. O que mais te motiva no dia a dia?</p>
+            <label><input type="radio" name="q7" value="a" required> Conquistar meus sonhos pessoais</label><br>
+            <label><input type="radio" name="q7" value="b"> Ser reconhecido(a) pelo que faço</label><br>
+            <label><input type="radio" name="q7" value="c"> Estar perto de quem amo</label><br>
+            <label><input type="radio" name="q7" value="d"> Cumprir apenas minhas obrigações</label>
+        </div>
+
+        <a href="fim.html" class="btn">Finalizar</a>
+    
+    </form>
+
+</body>
+</html>

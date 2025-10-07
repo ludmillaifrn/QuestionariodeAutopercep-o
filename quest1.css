@@ -1,0 +1,148 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+  
+body {
+    font-family: Arial, sans-serif;
+    background: #f7f48b; 
+}
+  
+.topo {
+    width: 100%;
+    height: 200px;
+    background: #f39c12;
+}
+  
+.conteudo {
+    text-align: center;
+    margin-top: -350px;
+    
+}
+  
+.logo {
+    width: 700px;
+    height: 700px;
+    margin: 0 auto -200px auto;
+    overflow: hidden; 
+}
+    
+.logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
+    
+.logo-container {
+    width: 700px;
+    height: 700px;
+    background-color: none; 
+    border-radius: 10%;
+    margin-top: -350px;
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    overflow: hidden;
+}
+    
+.logo-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+  
+.nome {
+    font-size: 26px;
+    font-weight: bold;
+    margin-left: 1200px;
+    margin-top: -380px;
+    color: #111;
+}
+.titulo {
+    font-size: 26px;
+    font-weight: bold;
+    margin-left: 100px;
+    margin-top: 150px;
+    color: #111;
+}
+  
+  
+.question1 {
+    font-size: 22px;
+    font-weight: bold;
+    color: #111;
+    position: absolute;
+    margin: 100px;
+    margin-left: 550px;
+}
+.question2 {
+    font-size: 22px;
+    font-weight: bold;
+    color: #111;
+    position: absolute;
+    margin: 300px;
+    margin-left: 550px;
+}
+.question3 {
+    font-size: 22px;
+    font-weight: bold;
+    color: #111;
+    position: absolute;
+    margin: 550px;
+    margin-left: 550px;
+}
+  
+.question4 {
+    font-size: 22px;
+    font-weight: bold;
+    color: #111;
+    position: absolute;
+    margin: 800px;
+    margin-left: 550px;
+    width: 500px;
+}
+.question5 {
+    font-size: 22px;
+    font-weight: bold;
+    color: #111;
+    position: absolute;
+    margin: 1000px;
+    margin-left: 550px;
+    width: 500px;
+}
+.question6 {
+    font-size: 22px;
+    font-weight: bold;
+    color: #111;
+    position: absolute;
+    margin: 1200px;
+    margin-left: 550px;
+    width: 500px;
+}
+.question7 {
+    font-size: 22px;
+    font-weight: bold;
+    color: #111;
+    position: absolute;
+    margin: 1450px;
+    margin-left: 550px;
+    width: 500px;
+}
+.btn {
+    background-color: rgba(236, 171, 15, 0.8) !important; 
+    color: #000 !important; 
+    font-weight: bold;
+    font-size: 22px; 
+    padding: 18px 50px; 
+    border-radius: 40px; 
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    margin: 1700px;
+    margin-left: 1300px;
+    transition: background 0.3s;
+}
+    
+.btn:hover {
+    background-color: rgba(236, 171, 15, 1) !important; 
+}
