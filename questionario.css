@@ -54,8 +54,9 @@ body {
 .titulo {
     font-size: 26px;
     font-weight: bold;
+    margin: 30px;
     margin-left: 100px;
-    margin-top: 150px;
+    margin-top: -170px;
     color: #111;
 }
   
@@ -65,7 +66,7 @@ body {
     font-weight: bold;
     color: #111;
     position: absolute;
-    margin: 100px;
+    margin: 30px;
     margin-left: 550px;
 }
 .question2 {
@@ -73,7 +74,7 @@ body {
     font-weight: bold;
     color: #111;
     position: absolute;
-    margin: 300px;
+    margin: 65px;
     margin-left: 550px;
 }
 .question3 {
@@ -81,7 +82,7 @@ body {
     font-weight: bold;
     color: #111;
     position: absolute;
-    margin: 550px;
+    margin: 95px;
     margin-left: 550px;
 }
   
@@ -90,36 +91,36 @@ body {
     font-weight: bold;
     color: #111;
     position: absolute;
-    margin: 800px;
+    margin: 130px;
     margin-left: 550px;
-    width: 500px;
+    width: 600px;
 }
 .question5 {
     font-size: 22px;
     font-weight: bold;
     color: #111;
     position: absolute;
-    margin: 1000px;
+    margin: 195px;
     margin-left: 550px;
-    width: 500px;
+    width: 600px;
 }
 .question6 {
     font-size: 22px;
     font-weight: bold;
     color: #111;
     position: absolute;
-    margin: 1200px;
+    margin: 235px;
     margin-left: 550px;
-    width: 500px;
+    width: 600px;
 }
 .question7 {
     font-size: 22px;
     font-weight: bold;
     color: #111;
     position: absolute;
-    margin: 1450px;
+    margin: 295px;
     margin-left: 550px;
-    width: 500px;
+    width: 600px;
 }
 .btn {
     background-color: rgba(236, 171, 15, 0.8) !important; 
@@ -131,8 +132,8 @@ body {
     border: none;
     cursor: pointer;
     position: absolute;
-    margin: 1700px;
-    margin-left: 1300px;
+    margin: 400px;
+    margin-left: 1400px;
     transition: background 0.3s;
 }
     
