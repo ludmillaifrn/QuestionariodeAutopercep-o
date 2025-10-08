@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Meus Resultados</title>
+    <link rel="stylesheet" href="resultado.css">
+</head>
+<body>
+    <div class="topo"></div>
+    <div class="conteudo"></div>
+        
+    <div class="logo-container">
+        <img src="1000195539 (3).png" alt="logo">
+    </div>
+
+    <h1>Seu Relatório de Autopercepção</h1>
+    
+    {% if resultado %}
+        <p>Data da Submissão: {{ resultado.data_submissao }}</p>
+        <p>Pontuação Total: **{{ resultado.pontuacao_total }}**</p>
+        
+        <h2>Feedback:</h2>
+        <p>Seu nível de bem-estar atual é classificado como **{{ resultado.nivel_bem_estar }}**.</p>
+        
+        <p><a href="/">Fazer um novo questionário</a></p>
+    {% else %}
+        <p>Nenhum resultado encontrado.</p>
+    {% endif %}
+</body>
+</html>
