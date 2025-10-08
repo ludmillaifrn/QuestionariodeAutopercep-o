@@ -12,44 +12,44 @@
     <div class="logo-container">
         <img src="1000195539 (3).png" alt="logo">
     </div>
-    
-    <h1>Questionário de Autopercepção</h1>
+    <div class="titulo">
+        <h1>Questionário de Autopercepção</h1>
+    </div>
     
     <form method="POST" action="/enviar_respostas">
-        <div>
+        <div class="question1">
             <label for="q1">Q1: Como você está se sentindo hoje?</label>
-            <input type="number" id="q1" name="resposta_q1" min="1" max="5" required aria-label="Resposta à pergunta 1, de 1 a 5">
+            <input type="number" id="q1" name="resposta_q1" min="1" max="5" required aria-label="Resposta à pergunta 1, de 1 a 5"><br>
         </div>
         
-        <div>
+        <div class="question2">
             <label for="q2">Q2: Agora sobre o seu sono, quantas horas você tem dormido por noite, nos últimos 5 dias?</label>
-            <input type="number" id="q2" name="resposta_q2" min="1" max="5" required aria-label="Resposta à pergunta 2, de 1 a 5">
+            <input type="number" id="q2" name="resposta_q2" min="1" max="5" required aria-label="Resposta à pergunta 2, de 1 a 5"><br>
         </div>
 
-        <div>
+        <div class="question3">
             <label for="q3">Q3: Sobre sua autorregulação, como você lida com suas emoções no dia a dia?</label>
-            <input type="number" id="q3" name="resposta_q3" min="1" max="5" required aria-label="Resposta à pergunta 3, de 1 a 5">
+            <input type="number" id="q3" name="resposta_q3" min="1" max="5" required aria-label="Resposta à pergunta 3, de 1 a 5"><br>
         </div>
-        <div>
+        <div class="question4">
             <label for="q4">Q4: Como você se sente em relação ao vínculo com sua família?</label>
-            <input type="number" id="q4" name="resposta_q4" min="1" max="5" required aria-label="Resposta à pergunta 1, de 1 a 5">
+            <input type="number" id="q4" name="resposta_q4" min="1" max="5" required aria-label="Resposta à pergunta 1, de 1 a 5"><br>
         </div>
         
-        <div>
+        <div class="question5">
             <label for="q5">Q5:Você se sente satisfeito(a) com quem é hoje?</label>
-            <input type="number" id="q5" name="resposta_q5" min="1" max="5" required aria-label="Resposta à pergunta 2, de 1 a 5">
+            <input type="number" id="q5" name="resposta_q5" min="1" max="5" required aria-label="Resposta à pergunta 2, de 1 a 5"><br>
         </div>
 
-        <div>
+        <div class="question6">
             <label for="q6">Q6: Como você se sente em relação a si mesmo(a), sua autoconfiança e conquistas?</label>
-            <input type="number" id="q6" name="resposta_q6" min="1" max="5" required aria-label="Resposta à pergunta 3, de 1 a 5">
+            <input type="number" id="q6" name="resposta_q6" min="1" max="5" required aria-label="Resposta à pergunta 3, de 1 a 5"><br>
         </div>
-        <div>
+        <div class="question7">
             <label for="q7">Q7:  O que mais te motiva no dia a dia?</label>
-            <input type="number" id="q7" name="resposta_q7" min="1" max="5" required aria-label="Resposta à pergunta 3, de 1 a 5">
+            <input type="number" id="q7" name="resposta_q7" min="1" max="5" required aria-label="Resposta à pergunta 3, de 1 a 5"><br>
         </div>
-        <button type="submit">Enviar Respostas</button>
-        
+        <button type="submit" class="btn">Enviar Respostas</button>
     </form>
 </body>
 </html>
