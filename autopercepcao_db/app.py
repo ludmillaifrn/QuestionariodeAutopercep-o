@@ -1,5 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for
-from flask_mysqldb import MySQL 
+from flask_mysqldb import MySQL
+import sys # Importado para logar erros detalhados
+
 app = Flask(__name__)
 
 app.config['MYSQL_HOST'] = 'localhost'
@@ -11,110 +13,75 @@ app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 mysql = MySQL(app)
 
 @app.route('/')
-def index_page():
-    return render_template('index.html')
-
-@app.route('/login')
-def login_page():
-    return render_template('login.html')
-
-@app.route('/aprof')
-def aprof_page():
-    return render_template('aprof.html')
-
-@app.route('/quest1')
-def quest1():
-    return render_template('quest1.html')
-
-@app.route('/quest2')
-def quest2():
-    return render_template('quest2.html')
-
+def index():
+    return render_template('questionario.html')
 
 @app.route('/enviar_respostas', methods=['POST'])
-def enviar_respostas():
-    usuario_id = 'user_teste@email.com'
+def Enviar_respostas():
+    if request.method == 'POST':
+        usuario_id = 'user_teste@email.com' 
+        
+        try:
+            q1 = int(request.form['resposta_q1'])
+            q2 = int(request.form['resposta_q2'])
+            q3 = int(request.form['resposta_q3'])
+            q4 = int(request.form['resposta_q4'])
+            q5 = int(request.form['resposta_q5'])
+            q6 = int(request.form['resposta_q6'])
+            q7 = int(request.form['resposta_q7'])
+        except (KeyError, ValueError) as e:
+            print(f"Erro ao coletar dados do formulário: {e}", file=sys.stderr)
+            return "Erro: Respostas inválidas ou faltando. Verifique os nomes dos campos no HTML.", 400
 
-    pesos = {
-        "resposta_q1": {"A": 0, "B": 20, "C": 60, "D": 100},
-        "resposta_q2": {"A": 0, "B": 15, "C": 45, "D": 90},
-        "resposta_q3": {"A": 0, "B": 10, "C": 50, "D": 80},
-        "resposta_q4": {"A": 0, "B": 25, "C": 55, "D": 95},
-        "resposta_q5": {"A": 0, "B": 30, "C": 60, "D": 90},
-        "resposta_q6": {"A": 0, "B": 35, "C": 70, "D": 100},
-        "resposta_q7": {"A": 0, "B": 40, "C": 80, "D": 100}
-    }
-
-    try:
-        respostas_raw = {}       
-        respostas_valores = {}   
-        pontuacao_total = 0
-
-        for i in range(1, 8):
-            campo = f'resposta_q{i}'
-            letra = request.form.get(campo)
-
-            if letra not in pesos[campo]:
-                return f"Erro: Resposta inválida para a questão {i}.", 400
-
-            valor = pesos[campo][letra]
-            respostas_raw[campo] = letra
-            respostas_valores[campo] = valor
-            pontuacao_total += valor
-
-
-        if pontuacao_total >= 550:
+        pontuacao_total = q1 + q2 + q3 + q4+ q5 + q6 + q7
+        
+        if pontuacao_total >= 10:
             nivel_bem_estar = 'Ótimo'
-        elif pontuacao_total >= 300:
+        elif pontuacao_total >= 5:
             nivel_bem_estar = 'Satisfatório'
         else:
             nivel_bem_estar = 'Atenção'
+            
+        try:
+            cur = mysql.connection.cursor()
+            
+            sql_query = """
+                INSERT INTO RespostasQuestionario (
+                    usuario_id, resposta_q1, resposta_q2, resposta_q3, resposta_q4, 
+                    resposta_q5, resposta_q6, resposta_q7, pontuacao_total, nivel_bem_estar
+                )
+                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+            """
+            
+            valores = (
+                usuario_id, q1, q2, q3, q4, q5, q6, q7, pontuacao_total, nivel_bem_estar
+            )
+            
+            cur.execute(sql_query, valores) 
+            
+            mysql.connection.commit()
+            cur.close()
 
-        cur = mysql.connection.cursor()
-        cur.execute("""
-            INSERT INTO respostasquestionario (
-                usuario_id,
-                resposta_q1, resposta_q2, resposta_q3,
-                resposta_q4, resposta_q5, resposta_q6, resposta_q7,
-                pontuacao_total, nivel_bem_estar
-            ) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
-        """, (
-            usuario_id,
-            respostas_valores['resposta_q1'],
-            respostas_valores['resposta_q2'],
-            respostas_valores['resposta_q3'],
-            respostas_valores['resposta_q4'],
-            respostas_valores['resposta_q5'],
-            respostas_valores['resposta_q6'],
-            respostas_valores['resposta_q7'],
-            pontuacao_total,
-            nivel_bem_estar
-        ))
+            return redirect(url_for('resultado', user_id=usuario_id))
 
-        mysql.connection.commit()
-        cur.close()
+        except Exception as e:
+            print(f"Erro detalhado ao salvar no banco de dados: {e}", file=sys.stderr)
+            return f"Erro ao salvar no banco de dados: {e}", 500
 
-        return redirect(url_for('fim_page', user_id=usuario_id))
-
-    except Exception as e:
-        return f"Erro ao processar ou salvar respostas: {e}", 500
-
-
-@app.route('/fim') 
-def fim_page(): 
+@app.route('/resultado')
+def resultado():
     user_id = request.args.get('user_id')
     
     if not user_id:
-        return redirect(url_for('index_page')) 
+        return redirect(url_for('index'))
 
     try:
         cur = mysql.connection.cursor()
         
         cur.execute("""
-            SELECT pontuacao_total, nivel_bem_estar, data_submissao
-            FROM respostasquestionario
+            SELECT pontuacao_total, nivel_bem_estar
+            FROM RespostasQuestionario
             WHERE usuario_id = %s
-            ORDER BY data_submissao DESC
             LIMIT 1
         """, [user_id])
         
@@ -122,13 +89,13 @@ def fim_page():
         cur.close()
 
         if resultado:
-            return render_template('fim.html', resultado=resultado) 
+            return render_template('resultado.html', resultado=resultado)
         else:
             return "Nenhum resultado encontrado para este usuário."
     
     except Exception as e:
-        return f"Erro ao buscar resultados: {e}", 500
+        print(f"Erro detalhado ao buscar resultado: {e}", file=sys.stderr)
+        return f"Erro ao buscar resultado: {e}", 500
 
 if __name__ == '__main__':
     app.run(debug=True)
-
